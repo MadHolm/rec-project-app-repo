@@ -8,7 +8,9 @@ steps:
   env:
     - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
     - 'CLOUDSDK_CONTAINER_CLUSTER=gke-hello-world-cluster'
-
+    
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'deployment.yaml']
 
 options:
   logging: CLOUD_LOGGING_ONLY  
