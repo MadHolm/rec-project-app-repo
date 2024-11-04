@@ -1,16 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/kubectl'
-  args:
-    - 'set'
-    - 'image'
-    - 'deployment/hello-app-deployment'
-    - 'hello-app=http://us-docker.pkg.dev/cloudrun/container/hello'
+  args: ['apply', '-f', 'deployment.yaml']
   env:
     - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
     - 'CLOUDSDK_CONTAINER_CLUSTER=gke-hello-world-cluster'
-    
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'deployment.yaml']
 
 options:
   logging: CLOUD_LOGGING_ONLY  
