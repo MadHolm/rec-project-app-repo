@@ -11,5 +11,17 @@ steps:
     - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
     - 'CLOUDSDK_CONTAINER_CLUSTER=gke-hello-world-cluster'
 
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'managed-certificate.yaml']
+  env:
+    - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=gke-hello-world-cluster'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'ingress.yaml']
+  env:
+    - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=gke-hello-world-cluster'
+
 options:
   logging: CLOUD_LOGGING_ONLY  
