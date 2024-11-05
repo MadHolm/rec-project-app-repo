@@ -6,6 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "gce"               # Use Google Cloud Ingress
     networking.gke.io/managed-certificates: hello-app-cert  # Reference to the Managed Certificate
     kubernetes.io/ingress.global-static-ip-name: gke-app-ip
+    networking.gke.io/v1beta1.FrontendConfig: gke-frontend-config
 spec:
   rules:
   - host: boar.best                             # Replace with your domain name
