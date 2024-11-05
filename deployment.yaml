@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: us-docker.pkg.dev/cloudrun/container/hello   # Existing image from the Artifact Registry
+        image: paulbouwer/hello-kubernetes:1.5   # Existing image from the Artifact Registry
         ports:
         - containerPort: 80      # Port the app listens on inside the container
         resources:
