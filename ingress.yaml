@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "gce"               # Use Google Cloud Ingress
+    networking.gke.io/managed-certificates: hello-app-cert  # Reference to the Managed Certificate
+spec:
+  rules:
+  - host: boar.best                             # Replace with your domain name
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-app-service                # Reference to your Service
+            port:
+              number: 80
